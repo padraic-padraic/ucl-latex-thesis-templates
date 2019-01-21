@@ -156,7 +156,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions
 \LoadClass{book}
-\RequirePackage{times}
+%\RequirePackage{times}
 \RequirePackage{mathptmx}
 %    \end{macrocode}
 %
@@ -399,6 +399,8 @@
 %    \begin{macrocode}
 \def\department#1{\gdef\@department{#1}}
 \def\@department{\@latex@warning@no@line{No \noexpand\department given}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\@supervisor{\@latex@warning@no@line{No \noexpand\supervisor given}}
 \renewcommand \maketitle{%
     \setcounter{page}{1}%
     \thispagestyle{empty}%
@@ -409,6 +411,7 @@
     \gdef \@thanks{}%
     %\gdef \@author{}%
     \gdef \@department{}%
+    \gdef \@supervisor{}%
     \gdef \@title{}%
     \let \maketitle = \relax%
 }

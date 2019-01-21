@@ -13,6 +13,7 @@ ucl-latex-thesis-templates
 ├── FloatSettings.tex
 ├── Introduction.tex
 ├── LinksAndMetadata.tex
+├── Macros.tex
 ├── MANIFEST.md
 ├── Main.tex
 ├── MainPackages.tex
