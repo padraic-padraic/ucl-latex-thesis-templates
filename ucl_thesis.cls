@@ -158,6 +158,7 @@
 \LoadClass{book}
 %\RequirePackage{times}
 \RequirePackage{mathptmx}
+\RequirePackage{tabularx}
 %    \end{macrocode}
 %
 %  \subsection{Page Layout}
@@ -423,35 +424,46 @@
 \newcommand \@maketitle{%
     \newpage%
     \null%
-    \vspace*{5em}%
-%%%
-%%%  Julia Schnabel wanted the following added.
-%%%
-%%%    \renewcommand{\baselinestretch}{2.5}
-%%%    \small
-%%%    \normalsize
-%%%
-    \begin{center}%
-        {\huge \bfseries \@title}\\[5em]%
-        {\Large \itshape \@author}\\%
-    \end{center}%
-    \vfill%
-    \begin{center}%
-    A dissertation submitted in partial fulfillment \\
-    of the requirements for the degree of \\
-    \textbf{\@degree@string} \\
-    of \\
-    \textbf{University College London}.
-    \end{center}%
-    \vspace{2em}%
-    \begin{center}%
-    \@department \\
-    University College London\\
-    \end{center}%
-    \vspace{2em}%
-    \begin{center}%
-    \@date%
-    \end{center}%
+    \thispagestyle{empty}
+  \vspace*{-1in}\hspace*{-1.9in}\includegraphics[width=1.02\paperwidth]{UCLlogo}
+  \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the
+  % horizontal lines, change thickness here
+  \null\vfil
+  \center % Center everything on the page
+  \\[1cm]
+   \textsc{\LARGE University College London}
+   % Name of your
+  % university/college
+  % \\[1cm]
+  % \textsc{\Large PHASGQ99 MRes Research Project}
+  \\[0.5cm] % Major
+  % heading such as course name \textsc{\large Literature Review}\\[0.5cm] % Minor heading such as course title
+
+
+  \HRule \\[0.2cm]
+  {\LARGE \bfseries \@title}\\[-0.2cm]
+  % Title of your document
+  \HRule \\[1.2cm]
+
+  \begin{minipage}[t]{0.4\textwidth}
+  \begin{flushleft} \large
+  \emph{Author:}\\
+  % Your name
+  \@author
+  \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[t]{0.4\textwidth}
+  \begin{flushright} \large
+  \emph{Supervisor:} \\
+  \@supervisor \\% Supervisor's Name
+  \end{flushright}
+  \end{minipage}\\[2cm]
+  \large Submitted in partial fulfilment for the degree of \textbf{\@degree@string}
+  \\[2.45cm]
+
+  {\large \@date}\\% Date, change the \today to a set date if you want to
+  % be precise
+  \null\vfil % Fill the rest of the page with whitespace
     \if@twoside %
       \newpage%
       ~\\
@@ -464,12 +476,37 @@
 %  \begin{macro}{\makedeclaration}
 %    \begin{macrocode}
        \newcommand \makedeclaration {%
-         \clearpage%
-         I, \@author , confirm that the work presented in this thesis is my own.
-         Where information has been derived from other sources, I confirm that this has been indicated in the work.
-         \gdef \@author{}%
-         \clearpage%
-       }%
+         \newcommand\Declaration[1]{
+        %\btypeout{Declaration of Authorship}
+        \thispagestyle{empty}
+        %\vskip 60\p@
+        %\begin{center}{\huge\bf Declaration of Authorship\par}\end{center}
+            \null\vfil
+        %\vskip 60\p@
+        {\normalsize #1}
+        \vfil\vfil\null
+        %\cleardoublepage
+        }
+
+        % Signature function
+        \newcommand{\namesigdate}[2][5cm]{%
+          \begin{tabular}{@{}p{#1}@{}}
+            #2 \\[\normalbaselineskip] \hrule \\[-15pt]
+            {\small \textit{Signature}} \\[\normalbaselineskip]\large \hspace{2.2cm}\texttt{\@date}\hfill \\[-10pt]\hrule \\[-15pt]
+            {\small \textit{Date}}
+          \end{tabular}
+        }
+        \Declaration{
+        I, \textsc{\@author}, confirm that the work presented in this report is
+        my own.
+        Where information has been derived from other sources, I confirm that this has been
+        indicated in the report.
+
+        \begin{flushright}
+          \namesigdate[2.5in]{}
+        \end{flushright}
+        }
+      }%
 %    \end{macrocode}
 %  \end{macro}
 %
