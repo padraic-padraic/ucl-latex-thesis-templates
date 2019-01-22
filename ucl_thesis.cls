@@ -499,10 +499,10 @@
   }
 
   \Declaration{
-  I, \textsc{\@author}, confirm that the work presented in this report is
+  I, \textsc{\@author}, confirm that the work presented in this thesis is
   my own.
   Where information has been derived from other sources, I confirm that this has been
-  indicated in the report.
+  indicated in the thesis.
 
   \begin{flushright}
     \namesigdate[2.5in]{}
