@@ -26,8 +26,8 @@
 %%   in http://www.latex-project.org/lppl.txt and version 1.3 or later is part
 %%   of all distributions of LaTeX version 2005/12/01 or later.
 %%
-\def \fileversion{v1.6}
-\def \filedate{2014/08/12}
+\def \fileversion{v1.7}
+\def \filedate{2019/01/22}
 \def \docdate{\filedate}
 %
 %  \changes{v1.3}{1996/10/18}{}
@@ -422,50 +422,46 @@
 %  Create a separate title page with the usual material on it.
 %    \begin{macrocode}
 \newcommand \@maketitle{%
-    \newpage%
-    \null%
-    \thispagestyle{empty}
+  \if@openright%
+      \cleardoublepage%
+  \else%
+      \clearpage%
+  \fi
+  \thispagestyle{empty}%
   \vspace*{-1in}\hspace*{-1.9in}\includegraphics[width=1.02\paperwidth]{UCLlogo}
   \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the
   % horizontal lines, change thickness here
   \null\vfil
-  \center % Center everything on the page
-  \\[1cm]
-   \textsc{\LARGE University College London}
-   % Name of your
-  % university/college
-  % \\[1cm]
-  % \textsc{\Large PHASGQ99 MRes Research Project}
-  \\[0.5cm] % Major
-  % heading such as course name \textsc{\large Literature Review}\\[0.5cm] % Minor heading such as course title
-
-
-  \HRule \\[0.2cm]
-  {\LARGE \bfseries \@title}\\[-0.2cm]
-  % Title of your document
-  \HRule \\[1.2cm]
-
-  \begin{minipage}[t]{0.4\textwidth}
-  \begin{flushleft} \large
-  \emph{Author:}\\
-  % Your name
-  \@author
-  \end{flushleft}
-  \end{minipage}
-  \begin{minipage}[t]{0.4\textwidth}
-  \begin{flushright} \large
-  \emph{Supervisor:} \\
-  \@supervisor \\% Supervisor's Name
-  \end{flushright}
-  \end{minipage}\\[2cm]
-  \large Submitted in partial fulfilment for the degree of \textbf{\@degree@string}
-  \\[2.45cm]
-
-  {\large \@date}\\% Date, change the \today to a set date if you want to
-  % be precise
-  \null\vfil % Fill the rest of the page with whitespace
+  {\centering
+    ~\\[1cm]
+    \textsc{\LARGE University College London}
+    ~\\[0.5cm]
+    \textsc{\Large \@department}
+    ~\\[0.2cm] 
+    \HRule ~\\[0.2cm]
+    {\LARGE \bfseries \@title}~\\[-0.18cm]
+    % Title of your document
+    \HRule ~\\[1.2cm]
+    \begin{minipage}[t]{0.4\textwidth}
+    \begin{flushleft} \large
+    \emph{Author:}~\\
+    % Your name
+    \@author
+    \end{flushleft}
+    \end{minipage}
+    \begin{minipage}[t]{0.4\textwidth}
+    \begin{flushright} \large
+    \emph{Supervisor:} ~\\
+    \@supervisor ~\\% Supervisor's Name
+    \end{flushright}
+    \end{minipage}~\\[2cm]
+    \large Submitted in partial fulfilment for the degree of \textbf{\@degree@string}
+    ~\\[2.45cm]
+    {\large \@date}~\\
+    \null\vfil % Fill the rest of the page with whitespace
+  }
     \if@twoside %
-      \newpage%
+      \newpage\thispagestyle{empty}%
       ~\\
       \newpage%
     \fi
@@ -475,38 +471,48 @@
 %
 %  \begin{macro}{\makedeclaration}
 %    \begin{macrocode}
-       \newcommand \makedeclaration {%
-         \newcommand\Declaration[1]{
-        %\btypeout{Declaration of Authorship}
-        \thispagestyle{empty}
-        %\vskip 60\p@
-        %\begin{center}{\huge\bf Declaration of Authorship\par}\end{center}
-            \null\vfil
-        %\vskip 60\p@
-        {\normalsize #1}
-        \vfil\vfil\null
-        %\cleardoublepage
-        }
+\newcommand\makedeclaration{%
+  \if@openright%
+      \cleardoublepage%
+  \else%
+      \clearpage%
+  \fi
+  \thispagestyle{empty}%
+  \newcommand\Declaration[1]{
+  %\btypeout{Declaration of Authorship}
+  %\vskip 60\p@
+  %\begin{center}{\huge\bf Declaration of Authorship\par}\end{center}
+  \null\vfil
+  %\vskip 60\p@
+  {\normalsize ##1}
+  \vfil\vfil\null
+  %\cleardoublepage
+  }
+  % Signature function
+  \newcommand{\namesigdate}[2][5cm]{%
+    \begin{tabular}{@{}p{##1}@{}}
+      ##2 ~\\[\normalbaselineskip] \hrule ~\\[-15pt]
+      {\small \textit{Signature}} ~\\[\normalbaselineskip]\large \hspace{2.2cm}\texttt{\@date}\hfill ~\\[-10pt]\hrule ~\\[-15pt]
+      {\small \textit{Date}}
+    \end{tabular}
+  }
 
-        % Signature function
-        \newcommand{\namesigdate}[2][5cm]{%
-          \begin{tabular}{@{}p{#1}@{}}
-            #2 \\[\normalbaselineskip] \hrule \\[-15pt]
-            {\small \textit{Signature}} \\[\normalbaselineskip]\large \hspace{2.2cm}\texttt{\@date}\hfill \\[-10pt]\hrule \\[-15pt]
-            {\small \textit{Date}}
-          \end{tabular}
-        }
-        \Declaration{
-        I, \textsc{\@author}, confirm that the work presented in this report is
-        my own.
-        Where information has been derived from other sources, I confirm that this has been
-        indicated in the report.
+  \Declaration{
+  I, \textsc{\@author}, confirm that the work presented in this report is
+  my own.
+  Where information has been derived from other sources, I confirm that this has been
+  indicated in the report.
 
-        \begin{flushright}
-          \namesigdate[2.5in]{}
-        \end{flushright}
-        }
-      }%
+  \begin{flushright}
+    \namesigdate[2.5in]{}
+  \end{flushright}
+  }
+  \if@twoside %
+      \newpage\thispagestyle{empty}%
+      ~\\
+      \newpage%
+  \fi
+}%
 %    \end{macrocode}
 %  \end{macro}
 %
@@ -545,11 +551,12 @@
     }%
 }
 \def \@makeschapterhead#1{%
-    \vspace*{50\p@}%
+    \vspace*{\p@}%
     {\parindent \z@%
-     \raggedright%
      \reset@font%
-     \huge \bfseries #1%
+     \begin{center}
+     \Huge \itshape #1%
+     \end{center}
      \par%
      \nobreak%
      \vskip 40\p@%
