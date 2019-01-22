@@ -5,21 +5,24 @@ Additionally, the `.git-ignore` and `.travis.yaml` files in the original reposit
 
 ```
 ucl-latex-thesis-templates
-├── Appendices.tex
-├── BibSettings.tex
-├── Chapter2.tex
-├── Chapter3.tex
-├── Conclusions.tex
-├── FloatSettings.tex
-├── Introduction.tex
-├── LinksAndMetadata.tex
-├── Macros.tex
+├── .latexmkrc
+├── example.bib
+├── Text_Files/Appendices.tex
+├── Text_Files/Chapter2.tex
+├── Text_Files/Chapter3.tex
+├── Text_Files/Conclusions.tex
+├── Text_Files/Introduction.tex
 ├── MANIFEST.md
 ├── Main.tex
-├── MainPackages.tex
 ├── Makefile
-├── Preamble.tex
+├── nicebib.bst
+├── nicebib-alpha.bst
+├── preamble/FloatSettings.tex
+├── preamble/FrontMatter.tex
+├── preamble/LinksAndMetadata.tex
+├── preamble/Macros.tex
+├── preamble/MainPackages.tex
+├── preamble/Nomenclature.tex
 ├── README.md
-├── example.bib
 └── ucl_thesis.cls
 ```

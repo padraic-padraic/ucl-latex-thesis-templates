@@ -104,6 +104,8 @@
 
 # nomencl
 *.nlo
+*.nls
+*.lot
 
 # sagetex
 *.sagetex.sage

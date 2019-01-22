@@ -60,17 +60,16 @@
 %  LaTeX uses "packages" to add extra commands and features.
 %  There are quite a few useful ones, so we've put them in a 
 %   separate file.
-\input{MainPackages}
+\input{preamble/MainPackages}
 
 % Sets up links within your document, for e.g. contents page entries
 %  and references, and also PDF metadata.
 % You should edit this!
-\input{LinksAndMetadata}
+\input{preamble/LinksAndMetadata}
 
 % And then some settings in separate files.
-\input{FloatSettings} % For things like figures and tables
-\input{BibSettings}   % For bibliographies
-\input{Macros}
+\input{preamble/FloatSettings} % For things like figures and tables
+\input{preamble/Macros}
 
 % These control how many number sections your subsections will take
 %    e.g. Section 2.3.1.5.6.3
@@ -78,10 +77,15 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
+\usepackage{imakeidx}
+\makeindex %comment out if you don't want index
+
+\usepackage{nomencl}
+\makenomenclature %comment out if you don't want nomenclature
 
 \begin{document}
 
-\nobibliography*
+%\nobibliography*
 % ^-- This is a dumb trick that works with the bibentry package to let
 %  you put bibliography entries whereever you like.
 % I used this to put references to papers a chapter's work was 
@@ -96,12 +100,14 @@
 
 % At last, content! Remember filenames are case-sensitive and 
 %  *must not* include spaces.
-\include{Preamble}
-\include{Introduction}
-\include{Chapter2}
-\include{Chapter3}
-\include{Conclusions}
-\include{Appendices} 
+
+\include{preamble/FrontMatter}
+\include{Text_Files/Introduction}
+\include{Text_Files/Chapter2}
+\include{Text_Files/Chapter3}
+\include{Text_Files/Conclusions}
+\include{Text_Files/Appendices}
+
 % You could separate these out into different files if you have
 %  particularly large appendices.
 
@@ -112,7 +118,17 @@
 \addcontentsline{toc}{chapter}{Bibliography}
 
 % Actually generates your bibliography.
-\bibliography{example}
+\bibliographystyle{nicebib-alpha} % Alphabetical ref-style
+%\bibliographystyle{nicebib} % Numerical ref-style
+
+\bibliography{example.bib}
+
+\indexprologue{In this index we use the \href{https://ctan.org/pkg/imakeidx?lang=en}{\texttt{imakeidx}} package. Put \texttt{\textbackslash index\{thing\}} in whenever ``thing'' crops up.} 
+
+\addcontentsline{toc}{chapter}{Index}
+
+\printindex%comment out if you don't want index
+
 
 % All done. \o/
 \end{document}

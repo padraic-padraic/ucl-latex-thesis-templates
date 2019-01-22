@@ -1,4 +1,4 @@
-% !TEX root = ./Main.tex
+% !TEX root = ../Main.tex
 
 % -------- Packages --------
 
@@ -19,6 +19,7 @@
 % The graphicx package adds the \includegraphics command,
 %  which is your basic command for adding a picture.
 \usepackage{graphicx}
+\graphicspath{{./Figures/}}
 
 % The float package improves LaTeX's handling of floats,
 %  and also adds the option to *force* LaTeX to put the float
@@ -142,3 +143,100 @@
 %  to check out the etoolbox package -- it defines a few commands
 %  that can make it easier to make commands robust.
 \usepackage{etoolbox}
+
+%-----------------------------------
+% Math e an i
+\newcommand{\mathe}{\ensuremath{\mathrm{e}}}
+\newcommand{\mathi}{\ensuremath{\mathrm{i}}}
+\usepackage{textgreek}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newcommand{\transpose}[1]{\ensuremath{#1}^{\mathsf{T}}}
+\newcommand{\supth}{\textsuperscript{th}\ }
+%-----------------------------------
+% Theorems and stuff
+\usepackage{amssymb} %maths
+\usepackage{amsthm}
+\usepackage{bm}%bold math
+\theoremstyle{plain}% default%
+\newtheoremstyle{slanted}% name of the style to be used
+  {}% measure of space to leave above the theorem. E.g.: 3pt
+  {}% measure of space to leave below the theorem. E.g.: 3pt
+  {\slshape}% name of font to use in the body of the theorem
+  {}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {}% Manually specify head
+\theoremstyle{slanted}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{conj}{Conjecture}
+\newtheorem{cor}{Corollary}
+\newtheorem{cla}{Claim}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{obs}{Observation}
+\newtheorem{exmp}{Example}
+\newtheorem{xca}{Exercise}
+\newtheorem{problem}{Problem}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newtheorem*{note}{Note}
+%-----------------------------------
+\usepackage{xcolor}%
+%-----------------------------------
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage[font={small}]{caption}
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{stackengine}
+\usepackage{setspace}
+\usepackage{algpseudocode,algorithm,algorithmicx}
+\floatstyle{plain}
+\newfloat{myalgo}{tbhp}{mya}
+\newenvironment{Algorithm}[2][tbh]%
+{\begin{myalgo}[#1]
+\centering
+\begin{minipage}{#2}
+\begin{algorithm}[H]\setstretch{1.15}}%
+{\end{algorithm}
+\end{minipage}
+\vspace{0.5cm}
+\end{myalgo}}
+%------------------------------------
+\usepackage{physics}
+\usepackage{complexity}
+%------------------------------------
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{hhline}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+%------------------------------------
+%\renewcommand\bibname{References}
+%\renewcommand*{\backref}[1]{}
+%\renewcommand*{\backrefalt}[4]{{\tiny[%
+%    \ifcase #1 Not cited.%
+%          \or Cited on page~#2.%
+%          \else Cited on pages #2.%
+%    \fi%
+%    ]}}
+
+%------------------------------------
+%--------EDITING---------------------
+%------------------------------------
+% \geometry{
+%     paperwidth=23.6cm,
+%     paperheight=27.9cm,
+%     rmargin=5.2cm,
+%     marginparwidth=4.6cm}
+\usepackage[textsize=footnotesize]{todonotes}
+% \usepackage[displaymath, mathlines]{lineno}
+% \renewcommand\thelinenumber{\color{gray}\arabic{linenumber}}
+% \linenumbers
+% \usepackage{draftwatermark}
+% \SetWatermarkHorCenter{12cm}
+

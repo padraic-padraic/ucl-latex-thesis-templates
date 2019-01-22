@@ -1,4 +1,4 @@
-% !TEX root = ./Main.tex
+% !TEX root = ../Main.tex
 %%
 %% This file uses the hyperref package to make your thesis have metadata embedded in the PDF, 
 %%  and also adds links to be able to click on references and contents page entries to go to 
@@ -18,7 +18,14 @@
         pdfkeywords={Thesis Keywords},
         pdfauthor={Author},
         pdftitle={Title},
+        %colorlinks=true,       % false: boxed links; true: colored links
+	    linkcolor=cyan!15!black,          % color of internal links
+	    citecolor=cyan!15!black,        % color of links to bibliography
+	    filecolor=cyan!15!black,      % color of file links
+	    urlcolor=cyan!15!black,           % color of external links
+	    runcolor=cyan!15!black
     }
 }
 \makeatother
     
+% \usepackage{breakurl}

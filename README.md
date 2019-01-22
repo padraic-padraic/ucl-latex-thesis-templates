@@ -1,5 +1,31 @@
 # UCL LaTeX Thesis Templates
 
+
+This is my personal fork of the excellent [ucl-latex-thesis-templates](https://github.com/UCL/ucl-latex-thesis-templates), tailored to my needs.
+
+There are a number of changes I have made for my purposes.
+
+- Changed font to Latin Modern.
+- Title page, front and end matter cosmetically altered.
+- Referencing using one of two custom `.bst` files that reference arXiv papers in the way that I like, with proper hyperlinking.
+- Changed file structure and some file names.
+- Added a "List of Symbols" to the front matter, and an index to the end matter.
+
+## Usage
+
+The main source file to compile is `Main.tex`. Here are all of the includes from `preamble` and `Text_Files`. You can also change the referencing style and the index from this file. See `example.bib` for how to use the `arxivId` category.
+
+Change the title, author etc in `preamble/FrontMatter.tex`.
+
+Add pdf metadata in `preamble/LinksAndMetadata.tex`.
+
+Add your list of symbols to `preamble/Nomenclature.tex` if you want a list of symbols in the front matter of your document.
+
+
+=============
+
+# Original README
+
 [![Build Status](https://travis-ci.org/UCL/ucl-latex-thesis-templates.svg?branch=master)](https://travis-ci.org/UCL/ucl-latex-thesis-templates)
 
 This is a skeletal thesis template with a class and .sty file that you can use separately if you'd prefer.
@@ -20,7 +46,7 @@ Therefore, all files *except* `ucl_thesis.cls` are released into the public doma
 
 The classfile `ucl_thesis.cls` may be distributed and/or modified under the conditions of the LaTeX Project Public License, either version 1.3 of this license or (at your option) any later version. The latest version of this license is in <http://www.latex-project.org/lppl.txt> and version 1.3 or later is part of all distributions of LaTeX version 2005/12/01 or later.
 
-This work has the LPPL maintenance status `maintained'.
+This work has the LPPL maintenance status `maintained`.
 
 The Current Maintainer of this work is I. Kirker.
 

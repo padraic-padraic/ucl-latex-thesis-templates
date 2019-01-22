@@ -311,6 +311,7 @@
         \twocolumn%
     \fi%
 }
+
 \renewenvironment{thebibliography}[1]{%
     \chapter*{%
         \bibname%
@@ -428,7 +429,7 @@
       \clearpage%
   \fi
   \thispagestyle{empty}%
-  \vspace*{-1in}\hspace*{-1.9in}\includegraphics[width=1.02\paperwidth]{UCLlogo}
+  \vspace*{-1in}\hspace*{-1.9in}\includegraphics[width=1.02\paperwidth]{Figures/UCLlogo}
   \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the
   % horizontal lines, change thickness here
   \null\vfil
