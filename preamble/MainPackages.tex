@@ -48,6 +48,8 @@
 %  including footnotes and tables, use this instead:
 %\renewcommand{\baselinestretch}{1.5}
 
+% Disable indentation on paragraphs, adding a small vertical space instead
+\usepackage{parskip}
 
 % PGFPlots is either a really clunky or really good way to add graphs
 %  into your document, depending on your point of view.
@@ -239,4 +241,22 @@
 % \linenumbers
 % \usepackage{draftwatermark}
 % \SetWatermarkHorCenter{12cm}
+
+%------------------------------------
+%--------TITLE FORMAT----------------
+%------------------------------------
+\usepackage{fancyhdr}
+\usepackage[compact]{titlesec}
+\usepackage{titletoc}
+\titleformat{\chapter}[display]{%
+\normalfont\huge\bfseries}{%
+\chaptertitlename\ \thechapter}{15pt}{%
+\huge
+}
+\titleformat{\subsubsection}{\normalfont\large\itshape}{\thesubsubsection}{1em}{}
+\titlespacing{\chapter}{0pt}{*-3}{*1}
+\titlespacing{\subsection}{0pt}{*0.75}{*0.25}
+\titlespacing{\subsubsection}{0pt}{*0.5}{*0.1}
+% \titlecontents{subsection}
+%   [5em]{\vspace{-1.5em}\itshape}{\hspace{-0.5em}}{}{\normalfont \titlerule*[1pc]{.}\contentspage}
 

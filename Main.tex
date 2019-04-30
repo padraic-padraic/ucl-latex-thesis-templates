@@ -84,7 +84,26 @@
 \makenomenclature %comment out if you don't want nomenclature
 
 \begin{document}
-
+\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
+\fancypagestyle{plain}{
+    \fancyhead{}
+    \fancyhead[R]{\nouppercase{\textbf{\rightmark}}}
+    \fancyfoot[R]{\bfseries \thepage }
+}
+\fancyhead{} % clear all header fields
+\renewcommand{\chaptermark}[1]{%
+  \markboth{\chaptername\ \thechapter}{\textbf{#1}}
+}
+\renewcommand\sectionmark[1]{}
+\renewcommand\subsectionmark[1]{}
+\renewcommand\subsubsectionmark[1]{}
+\fancyhead[R]{\rightmark} % Odd and Even page numbering
+\fancyhead[L]{\leftmark}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{\bfseries \thepage }
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[R]{\bfseries \thepage }
 %\nobibliography*
 % ^-- This is a dumb trick that works with the bibentry package to let
 %  you put bibliography entries whereever you like.
@@ -118,8 +137,8 @@
 \addcontentsline{toc}{chapter}{Bibliography}
 
 % Actually generates your bibliography.
-\bibliographystyle{nicebib-alpha} % Alphabetical ref-style
-%\bibliographystyle{nicebib} % Numerical ref-style
+% \bibliographystyle{nicebib-alpha} % Alphabetical ref-style
+\bibliographystyle{nicebib} % Numerical ref-style
 
 \bibliography{example.bib}
 
