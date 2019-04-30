@@ -17,7 +17,7 @@ There are a number of changes I have made for my purposes.
 - Turn-off paragraph indentation
 - Default to numeric citation style
 
-Rather than modify the class, these changes are made as additions in `preamble/MainPackages.tex` and `Main.tex`.
+These changes are implemented in `preamble/MainPackages.tex` and `Main.tex`. We make one small change to `ucl_thesis.cls`, which is to set the page-style for chapters as `plain`. This is consistent with most LaTeX classes.
 
 ## Usage
 
