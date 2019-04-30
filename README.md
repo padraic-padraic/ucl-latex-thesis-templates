@@ -11,6 +11,14 @@ There are a number of changes I have made for my purposes.
 - Changed file structure and some file names.
 - Added a "List of Symbols" to the front matter, and an index to the end matter.
 
+### Padraic's Tweaks
+
+- Add a 'fancy header' showing chapter titles on each page
+- Turn-off paragraph indentation
+- Default to numeric citation style
+
+Rather than modify the class, these changes are made as additions in `preamble/MainPackages.tex` and `Main.tex`.
+
 ## Usage
 
 The main source file to compile is `Main.tex`. Here are all of the includes from `preamble` and `Text_Files`. You can also change the referencing style and the index from this file. See `example.bib` for how to use the `arxivId` category.
@@ -21,6 +29,7 @@ Add pdf metadata in `preamble/LinksAndMetadata.tex`.
 
 Add your list of symbols to `preamble/Nomenclature.tex` if you want a list of symbols in the front matter of your document.
 
+This template can be alternatively built without the makefile using `latexmk -pdf Main`, and cleaned with `latexmk -c`. These programmes are included in most TeX distributions.
 
 =============
 
