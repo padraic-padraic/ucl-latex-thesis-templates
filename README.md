@@ -11,7 +11,7 @@ There are a number of changes I have made for my purposes.
 - Changed file structure and some file names.
 - Added a "List of Symbols" to the front matter, and an index to the end matter.
 
-### Padraic's Tweaks
+### Padraic's Tweaks
 
 - Add a 'fancy header' showing chapter titles on each page
 - Turn-off paragraph indentation
